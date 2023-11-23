@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Udacity Attendance</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            line-height: 1.6;
+            margin: 2em;
+        }
+
+        /* You can remove your custom CSS for th, td, and input */
+
+        /* Column types */
+        th.missed-col {
+            background-color: #f00;
+        }
+
+        td.missed-col {
+            background-color: #ffecec;
+            color: #f00;
+            text-align: center;
+        }
+
+        .name-col {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-3">
+        <h1>Udacity Attendance</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="name-col">Student Name</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                    <th>10</th>
+                    <th>11</th>
+                    <th>12</th>
+                    <th class="missed-col">Days Missed-col</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="student">
+                    <td class="name-col">Slappy the Frog</td>
+                    <td class="attend-col"><input type="checkbox"></td>
+                    <!-- Add similar Bootstrap classes for checkboxes in other columns -->
+                    <td class="missed-col">0</td>
+                </tr>
+                <!-- Add similar rows for other students -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
