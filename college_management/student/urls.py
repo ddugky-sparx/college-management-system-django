@@ -21,4 +21,7 @@ from student import views
 urlpatterns = [
   path('student-register/',views.register ),
   path('student-data/',views.data ),
+  path('division-add/',views.division_add ),
+  path('class-add/',views.class_add ),
+
 ]

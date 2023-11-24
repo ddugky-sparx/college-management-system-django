@@ -1,0 +1,353 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | DataTables</title>
+  {% include 'script_head.html'%}
+  <style>
+    .spacer {
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+  </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+ {% include 'navbar.html'%}
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  {% include 'aside.html' %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Employees Details</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">DataTables</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+           
+            <!-- /.card -->
+
+            <div class="card">
+              
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Serial No</th>
+                    <th>Photo</th>
+                    <th>Employee Name</th>
+                    <th>Phone No</th>
+                    <th>Designation</th>                
+                    <th>Status</th>
+                    <th>Action</th>
+                    
+                   
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>
+                      <img src="{% static '/images/car.jpg' %}" alt="..." class="img-thumbnail img-fluid" style="width: 150px; height: 80px;">
+                    </td>
+                    
+                    </td>
+                    <td>Shameel
+                    </td>
+                    <td>4623723894
+                    </td>
+                    <td>Chief officer</td>
+
+                    <td><p class="text-success">Active</p></td>
+                    <td> <a href="edit.html" target="_blank" class="btn btn-tool">
+                      <i class="fas fa-pen"></i>
+                      </a> 
+                      
+                      <a href="#" class="btn btn-tool" id="deleteButton1">
+                        <i class="fas fa-trash"></i>
+                      </a> 
+                      <a href="#"  class="btn btn-tool"  id="viewButton3" data-toggle="modal" data-target="#modal-xl" >
+                        <i class="fas fa-eye"></i>
+                      </a></td>
+                     
+                   
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>
+                      <img src="{% static '/images/cat.jpg' %}" alt="..." class="img-thumbnail img-fluid" style="width: 150px; height: 80px;">
+                    </td>
+                    
+
+
+                    </td>
+                    <td>Nabeel
+                    </td>
+                    <td>238121234
+                    </td>
+                    <td>Accounting</td>
+                    <td><p class="text-danger">Deactive</p></td>
+                    <td>
+                      <a href="edit.html" target="_blank" class="btn btn-tool">
+                      <i class="fas fa-pen"></i>
+                      </a> 
+                      
+                      <a href="#" class="btn btn-tool"  id="deleteButton2">
+                        <i class="fas fa-trash"></i>
+                      </a>
+                      <a href="#"  class="btn btn-tool"  id="deleteButton3">
+                        <i class="fas fa-eye"></i>
+                      </a>
+                    </td>
+                    
+                  
+                  </tr>
+                 
+                  <tr>
+                    <td>3</td>
+                    <td>
+                      <img src="{% static '/images/flower.jpg' %}" alt="..." class="img-thumbnail img-fluid" style="width: 150px; height: 80px;">
+                    </td>
+                    
+                    <td>Mubeel
+                    </td>
+                   
+                    <td>2211223144
+                    </td>
+                    <td>Human Resources</td>
+                    <td><p class="text-danger">Deactive</p></td>
+                    <td><a href="edit.html" target="_blank" class="btn btn-tool">
+                      <i class="fas fa-pen"></i>
+                      </a> 
+                      
+                      <a href="#"  class="btn btn-tool"  id="deleteButton3">
+                        <i class="fas fa-trash"></i>
+                      </a>
+                      <a href="#"  class="btn btn-tool"  id="deleteButton3">
+                        <i class="fas fa-eye"></i>
+                      </a>
+                    </td>
+                      
+                     
+                   
+                  </tr>
+                  </tbody>
+                 
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <div class="modal fade" id="modal-xl">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">View Profile</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <section style="background-color: #eee;">
+            <div class="container py-5">
+
+          
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="card mb-4" style="height: 100%;">
+                    <div class="card-body text-center">
+                      <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                        class="rounded-circle img-fluid" style="width: 150px;">
+                      <h5 class="my-3">John Smith</h5>
+                      <p class="text-muted mb-1">Full Stack Developer</p>
+                      <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                      
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="col-lg-8">
+                  <div class="card mb-4" style="margin-bottom: 0 !important;">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <p class="mb-0">Full Name</p>
+                        </div>
+                        <div class="col-sm-9">
+                          <p class="text-muted mb-0">Johnatan Smith</p>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <p class="mb-0">Email</p>
+                        </div>
+                        <div class="col-sm-9">
+                          <p class="text-muted mb-0">example@example.com</p>
+                        </div>
+                      </div>
+                      
+                      
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <p class="mb-0">Mobile</p>
+                        </div>
+                        <div class="col-sm-9">
+                          <p class="text-muted mb-0">36765-4321</p>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <p class="mb-0">Address</p>
+                        </div>
+                        <div class="col-sm-9">
+                          <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <p class="mb-0">Date of Birth</p>
+                        </div>
+                        <div class="col-sm-9">
+                          <p class="text-muted mb-0">12/2/2002</p>
+                        </div>
+                      </div>
+                      
+                      
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <p class="mb-0">Gender</p>
+                        </div>
+                        <div class="col-sm-9">
+                          <p class="text-muted mb-0">Male</p>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <p class="mb-0">Qualification</p>
+                        </div>
+                        <div class="col-sm-9">
+                          <p class="text-muted mb-0">Btech</p>
+                        </div>
+                      </div>
+                      
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <p class="mb-0">Salary Amount</p>
+                        </div>
+                        <div class="col-sm-9">
+                          <p class="text-muted mb-0">25000</p>
+                        </div>
+                      </div>
+                      
+                      
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <p class="mb-0">Salary Day</p>
+                        </div>
+                        <div class="col-sm-9">
+                          <p class="text-muted mb-0">10</p>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <p class="mb-0">Joining Date</p>
+                        </div>
+                        <div class="col-sm-9">
+                          <p class="text-muted mb-0">10/5/2018</p>
+                        </div>
+                      </div>
+                      
+                     
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.content-wrapper -->
+  {% include 'footer.html'%}
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+{% include 'script_footer.html'%}
+<!-- Page specific script -->
+<script>
+ 
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+
+
+  
+</script>
+</body>
+</html>

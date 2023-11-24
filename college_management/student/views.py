@@ -6,5 +6,8 @@ def register(request):
 def data(request):
     return render(request,'student_data.html')
 
-def student_add(request):
-    return render(request,'.html')
+def class_add(request):
+    return render(request,'class_add.html',)
+
+def division_add(request):
+    return render(request,'division_add.html')
