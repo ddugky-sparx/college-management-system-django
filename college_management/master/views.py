@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def designation_data(request):
-    return render(request,'designation_data.html')
+    return render(request,'designation_data.html',{"name":"shameel"})
 
 def designation_edit(request):
     return render(request,'designation_edit.html')
