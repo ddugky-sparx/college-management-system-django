@@ -18,3 +18,8 @@ def qualification_edit(request):
 
 def qualification_add(request):
     return render(request,'qualification_add.html')
+
+def dummy(request):
+    print(request.POST.get('qualification'))
+    qualification=request.POST.get('qualification')
+    return render(request,'dummy.html',{'iteam':qualification})
