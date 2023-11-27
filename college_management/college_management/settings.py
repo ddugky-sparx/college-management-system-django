@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'master',
     'student',
-    'employees'
+    'employees',
+    'AdminPanel',
 ]
 
 MIDDLEWARE = [
