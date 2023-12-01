@@ -17,9 +17,13 @@ def qualification_edit(request):
     return render(request,'qualification_edit.html')
 
 def qualification_add(request):
+    if request.POST:
+        qualification=request.POST['qualification']
     return render(request,'qualification_add.html')
 
-def dummy(request):
-    print(request.POST.get('qualification'))
-    qualification=request.POST.get('qualification')
-    return render(request,'dummy.html',{'iteam':qualification})
+        
+
+# def dummy(request):
+#     # print(request.POST['qualification'])
+#     qualification=request.POST['qualification']
+#     return render(request,'dummy.html',{'iteam':qualification})

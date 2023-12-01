@@ -25,6 +25,6 @@ urlpatterns = [
    path('qualification-edit/',views.qualification_edit,name="qualification-edit"),
    path('qualification-data/',views.qualification_data,name="qualification-data"),
    path('qualification-add/',views.qualification_add,name="qualification-add"),
-   path('dummy/',views.dummy,name="dummy"),
+
    
 ]
