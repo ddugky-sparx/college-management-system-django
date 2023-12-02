@@ -67,7 +67,7 @@
               </form>
             </div>
             <!-- /.card -->
-            {{iteam}}
+            {{message}}
           
             <!-- /.card -->
 
@@ -97,9 +97,13 @@
 
 {% include 'script_footer.html'%}
 <script>
-$(function () {
+  {% comment %} var message = "{{ message }}";
+        if (message) {
+            alert(message);
+        } {% endcomment %}
+{% comment %} $(function () {
   bsCustomFileInput.init();
-});
+}); {% endcomment %}
 </script>
 </body>
 </html>
