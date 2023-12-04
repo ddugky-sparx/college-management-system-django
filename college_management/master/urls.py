@@ -25,6 +25,7 @@ urlpatterns = [
    path('qualification-edit/',views.qualification_edit,name="qualification-edit"),
    path('qualification-data/',views.qualification_data,name="qualification-data"),
    path('qualification-add/',views.qualification_add,name="qualification-add"),
+   path('qualification-data/<int:item_id>/', views.delete, name="qualification-dlete")
 
    
 ]

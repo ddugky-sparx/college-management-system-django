@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from master.models import Qualification
 # Create your views here.
 def designation_data(request):
@@ -28,7 +29,12 @@ def qualification_add(request):
     else:
         return render(request,'qualification_add.html')
 
-        
+def delete(request,item_id):
+    q = Qualification.objects.get(id=item_id)
+    q.delete()
+    return redirect('qualification-data')
+    
+    
 
 # def dummy(request):
 #     # print(request.POST['qualification'])
