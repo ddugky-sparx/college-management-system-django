@@ -68,8 +68,14 @@
                       <td>{{ forloop.counter }}</td>
                       <td>{{i.name}}
                       </td>
-                      <td><p class="text-success">Active</p></td>
-                      <td> <a href="{% url 'qualification-edit' %}" target="_blank" class="btn btn-tool">
+                      <td>
+                        {% if i.is_active %}
+                          <p class="text-success">Active</p>
+                        {% else %}
+                          <p class="text-success">Deactive</p>
+                        {% endif %}
+                      </p></td>
+                      <td> <a href="{% url 'qualification-edit' item_id=i.id %}" target="_blank" class="btn btn-tool">
                         <i class="fas fa-pen"></i>
                         </a> 
                         

@@ -48,20 +48,25 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form method="post"  enctype="multipart/form-data">
+                {% csrf_token %}
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Qualification</label>
-                    <input type="text" autofocus class="form-control" id="exampleInputEmail1" placeholder="Enter Qualification">
+                    <input type="text" value="{{ data.name }}" autofocus class="form-control" id="exampleInputEmail1" placeholder="Enter Qualification" name="qualificationedit">
                     
                   </div>
                   <div class="form-group">
                     <label>select</label>
-                    <select class="form-control select2 w-100" style="width: 100%;">
+                    {% comment %} <select class="form-control select2 w-100" style="width: 100%;">
                       <option value="active" selected="selected" class="text-success">Active</option>
                       <option value="active"  class="text-danger">Deactive</option>
             
-                    </select>
+                    </select> {% endcomment %}
+                    <select class="form-control select2 w-100" style="width: 100%;" name="status">
+                      <option value="1" {% if data.is_active %}selected{% endif %} class="text-success">Active</option>
+                      <option value="0" {% if not data.is_active %}selected{% endif %} class="text-danger">Inactive</option>
+                  </select>
                   </div>
                   
                  

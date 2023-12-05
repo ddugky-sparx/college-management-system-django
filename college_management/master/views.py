@@ -15,19 +15,36 @@ def qualification_data(request):
     data=Qualification.objects.all()
     return render(request,'qualification_data.html',{"data":data})
 
-def qualification_edit(request):
-    return render(request,'qualification_edit.html')
+def qualification_edit(request,item_id):
+    if request.POST:
+        ename=request.POST['qualificationedit']
+        status=request.POST['status']
+        print(type(status=='1'))
+        obj= Qualification.objects.get(id=item_id)
+        obj.name = ename
+        obj.save()
+        return redirect('qualification-data')  
+    else:
+        data=Qualification.objects.get(id=item_id)
+        return render(request,'qualification_edit.html',{"data":data})
+
+
+from django.shortcuts import render, redirect
+from .models import Qualification
 
 def qualification_add(request):
-
-    if request.POST:
-        qualification=request.POST['qualification']
-        instance=Qualification(name=qualification)
-        instance.save()
-        message="Submitted"
-        return render(request,'qualification_add.html',{"message":message})  
+    if request.method == 'POST':
+        qualification_name = request.POST['qualification']
+        existing_qualification = Qualification.objects.filter(name=qualification_name).exists()
+        if existing_qualification:
+            message = "Qualification already exists."
+        else:
+            new_qualification = Qualification(name=qualification_name)
+            new_qualification.save()
+            message = "Submitted"
+        return render(request, 'qualification_add.html', {"message": message})
     else:
-        return render(request,'qualification_add.html')
+        return render(request, 'qualification_add.html')
 
 def delete(request,item_id):
     q = Qualification.objects.get(id=item_id)
