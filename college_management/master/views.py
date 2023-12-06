@@ -19,9 +19,10 @@ def qualification_edit(request,item_id):
     if request.POST:
         ename=request.POST['qualificationedit']
         status=request.POST['status']
-        print(type(status=='1'))
+        status_value=status=='1'
         obj= Qualification.objects.get(id=item_id)
         obj.name = ename
+        obj.is_active=status_value
         obj.save()
         return redirect('qualification-data')  
     else:

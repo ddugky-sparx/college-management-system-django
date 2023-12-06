@@ -72,7 +72,7 @@
                         {% if i.is_active %}
                           <p class="text-success">Active</p>
                         {% else %}
-                          <p class="text-success">Deactive</p>
+                          <p class="text-danger">Deactive</p>
                         {% endif %}
                       </p></td>
                       <td> <a href="{% url 'qualification-edit' item_id=i.id %}" target="_blank" class="btn btn-tool">
