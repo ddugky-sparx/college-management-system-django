@@ -65,59 +65,30 @@
                   </tr>
                   </thead>
                   <tbody>
+                    {% for i in data %}
                   <tr>
-                    <td>1</td>
-                    <td>BTec
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{i.designation}}</td>
+                    <td>{{i.code}}
                     </td>
-                    <td>46237
-                    </td>
-                    <td><p class="text-success">Active</p></td>
-                    <td> <a href="{% url 'designation-edit'%}" target="_blank" class="btn btn-tool">
+                    <td>
+                      {% if i.is_active %}
+                        <p class="text-success">Active</p>
+                      {% else %}
+                        <p class="text-danger">Deactive</p>
+                      {% endif %}
+                    </p></td>
+                    <td> <a href="{% url 'designation-edit' item_id=i.id %}" target="_blank" class="btn btn-tool">
                       <i class="fas fa-pen"></i>
                       </a> 
                       
-                      <a href="#" class="btn btn-tool" id="deleteButton1">
+                      <a href="{% url 'designation-delete' item_id=i.id %}" class="btn btn-tool" id="deleteButton1" onclick="return delAlert()">
                         <i class="fas fa-trash"></i>
                       </a> </td>
                      
                    
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Degree
-                    </td>
-                    <td>23812
-                    </td>
-                    <td><p class="text-danger">Deactive</p></td>
-                    <td>
-                      <a href="{% url 'designation-edit'%}" target="_blank" class="btn btn-tool">
-                      <i class="fas fa-pen"></i>
-                      </a> 
-                      
-                      <a href="#" class="btn btn-tool"  id="deleteButton2">
-                        <i class="fas fa-trash"></i>
-                      </a>
-                    </td>
-                    
-                  
-                  </tr>
-                 
-                  <tr>
-                    <td>3</td>
-                    <td>Plus Two</td>
-                    <td>22112
-                    </td>
-                    <td><p class="text-danger">Deactive</p></td>
-                    <td><a href="{% url 'designation-edit'%}" target="_blank" class="btn btn-tool">
-                      <i class="fas fa-pen"></i>
-                      </a> 
-                      
-                      <a href="#"  class="btn btn-tool"  id="deleteButton3">
-                        <i class="fas fa-trash"></i>
-                      </a></td>
-                     
-                   
-                  </tr>
+                  {% endfor %}
                   </tbody>
                  
                 </table>
@@ -163,7 +134,14 @@
     });
   });
 
-
+  function  delAlert() {
+    if (confirm("Do you want to Delete?")===true) {
+      return true;
+    }else{
+      return false;
+    }
+     
+   }
   
 </script>
 </body>
