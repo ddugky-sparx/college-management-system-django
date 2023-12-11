@@ -12,6 +12,10 @@ def designation_edit(request,item_id):
         ecode=request.POST['designationcode']
         status=request.POST['status']
         status_value=status=='1'
+        existing_designation = Designation.objects.exclude(id=item_id).filter(designation=edesignation)
+        if existing_designation.exists():
+            data = Designation.objects.get(id=item_id)
+            return render(request, 'qualification_edit.html', {"message":"Designatio already exists","data": data})
         obj= Designation.objects.get(id=item_id)
         obj.designation = edesignation
         obj.code=ecode
@@ -41,16 +45,10 @@ def designation_delete(request,item_id):
     q.delete()
     return redirect('designation-data')
 
-
-
-
-
-
 def qualification_data(request):
     data=Qualification.objects.all()
     return render(request,'qualification_data.html',{"data":data})
 
-from django.contrib import messages
 
 def qualification_edit(request, item_id):
     if request.method == 'POST':

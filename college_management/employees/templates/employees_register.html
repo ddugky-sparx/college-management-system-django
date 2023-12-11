@@ -201,17 +201,17 @@ body {
                 <div class="col-sm-6 form-group">
                   <label for="Qualification">Qualification</label>
                   <select id="Qualification" class="form-control browser-default custom-select">
-                    <option value="BTec">BTec</option>
-                    <option value="Degree">Degree</option>
-                    <option value="Plus Two">Plus Two</option>
+                    {% for i in qdata  %}
+                    <option value="Accounting">{{i.name}}</option>
+                    {% endfor %}
                   </select>
                 </div>
                 <div class="col-sm-6 form-group">
                   <label for="designation">Designation</label>
                   <select id="designation" class="form-control browser-default custom-select">
-                    <option value="Accounting">Accounting</option>
-                    <option value="hr">Human Resources</option>
-                    <option value="cco">Chief compliance officer</option>
+                    {% for i in ddata  %}
+                    <option value="Accounting">{{i.designation}}</option>
+                    {% endfor %}
                   </select>
                 </div>
                 <div class="col-sm-6 form-group">

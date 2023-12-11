@@ -23,5 +23,6 @@ urlpatterns = [
     path('',include('AdminPanel.urls')),
     path('',include('master.urls')),
     path('',include('employees.urls')),
-    path('',include('EduSphere.urls'))
+    path('',include('EduSphere.urls')),
+    path('',include('demo.urls'))
 ]

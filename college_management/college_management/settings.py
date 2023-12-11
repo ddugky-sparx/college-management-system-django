@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'employees',
     'AdminPanel',
     'EduSphere',
+    'demo'
 ]
 
 MIDDLEWARE = [

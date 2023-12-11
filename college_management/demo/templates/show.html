@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+    <select name="selct" id="">
+        {% if data|length > 1 %}
+        {% for i in data  %}
+        <option value="{{i.id}}">{{i.name}}</option>
+        {% endfor %}
+        {% endif %}
+        
+    </select>
+    <button type="submit">Submit</button>
+    </form>
+    {% for i in all  %}
+        <option value="{{i.id}}">{{i.name}}</option>
+        {% endfor %}
+</body>
+</html>
