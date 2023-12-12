@@ -17,11 +17,30 @@ def create_product(request):
 
     
     return render(request,"formss.html")
-def show(request):
-    if request.method == 'POST':
-        category_id = request.POST.get("selct")
-        category = Category.objects.get(id=category_id)
-        products = Product.objects.filter(category=category)
-    
+# views.py
+
+from django.shortcuts import render
+from .models import Category, Product
+
+def display(request):
     categories = Category.objects.all()
-    return render(request, "show.html", {"data": categories, "all": ""})
+    # products = Product.objects.all()
+    context = {
+        'categories': categories,
+    }
+    return render(request, 'show.html', context)
+
+        
+
+
+
+
+
+
+
+    #     {% comment %} category_id = request.POST.get("selct")
+    #     category = Category.objects.get(id=category_id)
+    #     products = Product.objects.filter(category=category)
+    
+    # categories = Category.objects.all()
+    # return render(request, "show.html", {"data": categories, "all": ""}) {% endcomment %}

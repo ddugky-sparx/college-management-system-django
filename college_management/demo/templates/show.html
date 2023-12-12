@@ -6,20 +6,31 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="post">
-        {% csrf_token %}
-    <select name="selct" id="">
-        {% if data|length > 1 %}
-        {% for i in data  %}
-        <option value="{{i.id}}">{{i.name}}</option>
+    <h1>Product Items</h1>
+    <!-- your_template.html -->
+
+<table>
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Products</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.name }}</td>
+                <td>
+                    <ul>
+                        {% for product in category.product_set.all %}
+                            <li>{{ product.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
         {% endfor %}
-        {% endif %}
-        
-    </select>
-    <button type="submit">Submit</button>
-    </form>
-    {% for i in all  %}
-        <option value="{{i.id}}">{{i.name}}</option>
-        {% endfor %}
+    </tbody>
+</table>
+
 </body>
 </html>
