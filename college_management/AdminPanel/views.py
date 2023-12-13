@@ -7,3 +7,4 @@ def adminpanel(request):
 def change_password(request):
    return render(request,'change_password.html')
     
+    

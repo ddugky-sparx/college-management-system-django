@@ -1,6 +1,9 @@
 from django.shortcuts import render,redirect
 from master.models import Qualification,Designation
 # Create your views here.
+from django.contrib.auth.decorators import login_required
+
+# Create your views here.
 def designation_data(request):
     data=Designation.objects.all()
     return render(request,'designation_data.html',{"data":data})
@@ -44,7 +47,7 @@ def designation_delete(request,item_id):
     q = Designation.objects.get(id=item_id)
     q.delete()
     return redirect('designation-data')
-
+@login_required
 def qualification_data(request):
     data=Qualification.objects.all()
     return render(request,'qualification_data.html',{"data":data})
