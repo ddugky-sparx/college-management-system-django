@@ -55,7 +55,8 @@ body {
       <div class="container-fluid">
         <div class="row">
           <div class="container mt-3">
-            <form>
+            <form method='post'>
+              {% csrf_token %}
               <div class="row jumbotron box8">
                 <div class="container">
                   <div class="row d-flex align-items-stretch">
@@ -192,7 +193,7 @@ body {
                 </div>
                 <div class="col-sm-6 form-group">
                   <label for="sex">Gender</label>
-                  <select id="sex" class="form-control browser-default custom-select">
+                  <select id="sex" name="gender" class="form-control browser-default custom-select">
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="unspesified">Unspecified</option>
@@ -200,17 +201,17 @@ body {
                 </div>
                 <div class="col-sm-6 form-group">
                   <label for="Qualification">Qualification</label>
-                  <select id="Qualification" class="form-control browser-default custom-select">
+                  <select id="Qualification" name="qualification" class="form-control browser-default custom-select">
                     {% for i in qdata  %}
-                    <option value="Accounting">{{i.name}}</option>
+                    <option value="{{i.id}}">{{i.name}}</option>
                     {% endfor %}
                   </select>
                 </div>
                 <div class="col-sm-6 form-group">
                   <label for="designation">Designation</label>
-                  <select id="designation" class="form-control browser-default custom-select">
+                  <select id="designation" name="designation" class="form-control browser-default custom-select">
                     {% for i in ddata  %}
-                    <option value="Accounting">{{i.designation}}</option>
+                    <option value="{{i.id}}">{{i.designation}}</option>
                     {% endfor %}
                   </select>
                 </div>
@@ -221,7 +222,7 @@ body {
                 
                 <div class="col-sm-6 form-group">
                   <label for="Country">Salary Day</label>
-                  <select class="form-control custom-select browser-default">
+                  <select name="salary_day" class="form-control custom-select browser-default">
                     <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -263,7 +264,7 @@ body {
                 <div class="col-sm-6 form-group">
                   <label for="customFile">Photo</label>
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile" required>
+                    <input type="file" class="custom-file-input" id="customFile" >
                     <label class="custom-file-label" for="customFile">Choose file</label>
                   </div>
                 </div>
