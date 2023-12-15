@@ -114,7 +114,7 @@
     <!-- /.content -->
   </div>
   {% for employee in data %}
-  <div class="modal fade" id="modal-xl">
+  <div class="modal fade" id="modal-xl{{ employee.id }}">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
@@ -134,9 +134,9 @@
                     <div class="card-body text-center">
                       <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
                         class="rounded-circle img-fluid" style="width: 150px;">
-                      <h5 class="my-3">John Smith</h5>
-                      <p class="text-muted mb-1">Full Stack Developer</p>
-                      <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                      <h5 class="my-3">{{ employee.fname }} {{ employee.lname }}</h5>
+                      <p class="text-muted mb-1">{{ employee.designation.designation }}</p>
+                      <p class="text-muted mb-4">{{ employee.locality}}</p>
                       
                     </div>
                   </div>
@@ -150,7 +150,7 @@
                           <p class="mb-0">Full Name</p>
                         </div>
                         <div class="col-sm-9">
-                          <p class="text-muted mb-0">Johnatan Smith</p>
+                          <p class="text-muted mb-0">{{ employee.fname }} {{ employee.lname }}</p>
                         </div>
                       </div>
                       <hr>
@@ -159,7 +159,7 @@
                           <p class="mb-0">Email</p>
                         </div>
                         <div class="col-sm-9">
-                          <p class="text-muted mb-0">example@example.com</p>
+                          <p class="text-muted mb-0">{{ employee.email }}</p>
                         </div>
                       </div>
                       
@@ -170,7 +170,7 @@
                           <p class="mb-0">Mobile</p>
                         </div>
                         <div class="col-sm-9">
-                          <p class="text-muted mb-0">36765-4321</p>
+                          <p class="text-muted mb-0">{{ employee.phone }}</p>
                         </div>
                       </div>
                       <hr>
@@ -179,7 +179,7 @@
                           <p class="mb-0">Address</p>
                         </div>
                         <div class="col-sm-9">
-                          <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                          <p class="text-muted mb-0">{{ employee.locality }}</p>
                         </div>
                       </div>
                       <hr>
@@ -188,18 +188,16 @@
                           <p class="mb-0">Date of Birth</p>
                         </div>
                         <div class="col-sm-9">
-                          <p class="text-muted mb-0">12/2/2002</p>
+                          <p class="text-muted mb-0">{{ employee.dob }}</p>
                         </div>
                       </div>
-                      
-                      
                       <hr>
                       <div class="row">
                         <div class="col-sm-3">
                           <p class="mb-0">Gender</p>
                         </div>
                         <div class="col-sm-9">
-                          <p class="text-muted mb-0">Male</p>
+                          <p class="text-muted mb-0">{{ employee.gender }}</p>
                         </div>
                       </div>
                       <hr>
@@ -208,7 +206,7 @@
                           <p class="mb-0">Qualification</p>
                         </div>
                         <div class="col-sm-9">
-                          <p class="text-muted mb-0">Btech</p>
+                          <p class="text-muted mb-0">{{ employee.qualification.name }}</p>
                         </div>
                       </div>
                       
@@ -218,7 +216,7 @@
                           <p class="mb-0">Salary Amount</p>
                         </div>
                         <div class="col-sm-9">
-                          <p class="text-muted mb-0">25000</p>
+                          <p class="text-muted mb-0">{{ employee.salary_amount }}</p>
                         </div>
                       </div>
                       
@@ -229,7 +227,7 @@
                           <p class="mb-0">Salary Day</p>
                         </div>
                         <div class="col-sm-9">
-                          <p class="text-muted mb-0">10</p>
+                          <p class="text-muted mb-0">{{ employee.salary_day }}</p>
                         </div>
                       </div>
                       <hr>
@@ -238,7 +236,7 @@
                           <p class="mb-0">Joining Date</p>
                         </div>
                         <div class="col-sm-9">
-                          <p class="text-muted mb-0">10/5/2018</p>
+                          <p class="text-muted mb-0">{{ employee.joining_date }}</p>
                         </div>
                       </div>
                       
