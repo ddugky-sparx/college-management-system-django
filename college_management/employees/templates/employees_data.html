@@ -71,8 +71,12 @@
                     <tr>
                       <td>{{ employee.id }}</td>
                       <td>
-                        <img src="{% static 'images/car.jpg' %}" alt="..." class="img-thumbnail img-fluid" style="width: 150px; height: 80px;">
-                      </td>
+                        {% if employee.image %}
+                            <img src="{{ employee.image.url }}" alt="no image found" class="img-thumbnail img-fluid" style="width: 150px; height: 80px;">
+                        {% else %}
+                            <p>No Image</p>
+                        {% endif %}
+                    </td>
                       <td>{{ employee.fname }} {{ employee.lname }}</td>
                       <td>{{ employee.phone }}</td>
                       <td>{{ employee.designation.designation }}</td>

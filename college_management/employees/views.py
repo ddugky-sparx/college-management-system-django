@@ -21,6 +21,7 @@ def employees_register(request):
         salary_amount = request.POST.get('snumber')
         salary_day = request.POST.get('salary_day')
         joining_date = request.POST.get('jdate')
+        image_file = request.FILES['photo']
         
         
         qobj= Qualification.objects.get(id=qualification_id)
@@ -39,6 +40,7 @@ def employees_register(request):
             salary_amount=salary_amount,
             salary_day=salary_day,
             joining_date=joining_date,
+            image=image_file
         )
 
         return render(request,"employees_data.html",{"data":employee})

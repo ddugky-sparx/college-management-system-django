@@ -5,6 +5,7 @@ from master.models import Designation,Qualification
 class Employee(models.Model):
     fname = models.CharField(max_length=100)
     lname = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
     email = models.EmailField()
     locality = models.TextField()
     dob = models.DateField()
