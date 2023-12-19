@@ -4,9 +4,15 @@ from .models import Employee
 
 # Create your views here.
 def employees_data(request):
+    visited=int(request.COOKIES.get("visit",0))
+    visited+=1
     employee = Employee.objects.all()
-    return render(request,'employees_data.html',{"data":employee})
+    response=render(request,'employees_data.html',{"data":employee,"visited":visited})
+    response.set_cookie("visit",visited)
+    return response
+
 def employees_register(request):
+   
     if request.method == 'POST':
         # Extract data from POST request
         fname = request.POST.get('fname')
@@ -42,8 +48,8 @@ def employees_register(request):
             joining_date=joining_date,
             image=image_file
         )
-
-        return render(request,"employees_data.html",{"data":employee})
+        response=render(request,"employees_data.html",{"data":employee})
+        return response
     
     ddata=Designation.objects.filter(is_active=True)
     qdata=Qualification.objects.filter(is_active=True)
